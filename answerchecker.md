@@ -1,0 +1,29 @@
+def check_answer(user_ans, correct_ans):
+    user_ans = str(user_ans).lower()
+    correct_ans = str(correct_ans).lower()
+    
+    user_ans = user_ans.replace(" ", "")
+    correct_ans = correct_ans.replace(" ", "")
+    
+    if user_ans.startswith("x="):
+        user_ans = user_ans.replace("x=", "")
+    if user_ans.startswith("y="):
+        user_ans = user_ans.replace("y=", "")
+        
+    if correct_ans.startswith("x="):
+        correct_ans = correct_ans.replace("x=", "")
+    if correct_ans.startswith("y="):
+        correct_ans = correct_ans.replace("y=", "")
+        
+    if user_ans == correct_ans:
+        return True
+    else:
+        return False
+
+
+ans = input("Enter your answer: ")
+if check_answer(ans, "-8"):
+    print("Correct!")
+else:
+    print("Wrong answer")
+    
