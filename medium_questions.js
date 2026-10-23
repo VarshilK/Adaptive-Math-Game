@@ -4,6 +4,7 @@
     const ans2 = document.getElementById("answerbutton2");
     const ans3 = document.getElementById("answerbutton3");
     const ans4 = document.getElementById("answerbutton4");
+    const ans5 = document.getElementById("answerbutton5");
     //alert(hl);
     // alert("Is your number "+ target.innerHTML);
     //guess is now a number
@@ -23,5 +24,9 @@
     else if(ql == 4){
         target.innerHTML = "Question 4 (Systems of Linear Equations): Solve the following system of linear equations for x and y: 2x + y = 11 x - y = 1";
         ans4.innerHTML = "x = 4, y = 3";
+    }
+    else if(ql == 5){
+        target.innerHTML = "Solve the following system of linear equations for x and y: 3x + 2y = 16 x + 2y = 8";
+        ans5.innerHTML = "x = 4, y = 2";
     }
 }
