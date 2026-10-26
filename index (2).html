@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adaptive Math Diagnostic Test</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glass-card {
+  width: 90%;
+  max-width: 500px;
+  padding: 30px;
+  margin: 20px 0;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#statusField {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+#questionField {
+  font-size: 22px;
+  line-height: 1.4;
+  margin-bottom: 25px;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: white;
+  background: #0f172a;
+  border: 1px solid #475569;
+  border-radius: 6px;
+}
+
+input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  color: white;
+  background: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
+#resultField {
+  margin-top: 20px;
+  font-size: 18px;
+  min-height: 24px;
+}
+</style>
+</head>
+<body>
+<div class="glass-card">
+  <p id="statusField"></p>
+  <h2 id="questionField">Loading question…</h2>
+  <input type="text" id="answerInput" placeholder="Enter your answer" autocomplete="off">
+  <button id="submitBtn">Submit Answer</button>
+  <p id="resultField"></p>
+</div>
+
+<script>
+var levels = {
+  easy: [
+    { q: "What is the value of the expression: -7 + 12 - (-4)?", a: ["9"] },
+    { q: "Evaluate the expression: (-24) ÷ (-6) × (-2)", a: ["-8"] },
+    { q: "Solve this equation: x - 7 = -15", a: ["-8"] },
+    { q: "Solve this linear equation: 3y + 5 = -13", a: ["-6"] },
+    { q: "Solve this equation: 5x - 3 = 2x + 9", a: ["4"] }
+  ],
+  medium: [
+    { q: "(Pythagorean Theorem) A right triangle has legs of length 6 cm and 8 cm. What is the length of the hypotenuse?", a: ["10"] },
+    { q: "(Basic Geometry) A rectangle has a length of 12 meters and a width of 5 meters. What is its perimeter?", a: ["34"] },
+    { q: "(Quadratic Equations) Solve for x: x² - 5x + 6 = 0. Separate answers with a comma.", a: ["2,3"], unordered: true },
+    { q: "(Systems of Equations) Solve for x and y: 2x + y = 11, x - y = 1. Answer as x, y.", a: ["4,3"] },
+    { q: "(Systems of Equations) Solve for x and y: 3x + 2y = 16, x + 2y = 8. Answer as x, y.", a: ["4,2"] }
+  ],
+  hard: [
+    { q: "A population of bacteria grows according to P(t) = 300e^(0.04t). What is the initial population?", a: ["300"] },
+    { q: "Solve for x: log2(x+3) + log2(x-3) = 4", a: ["5"] },
+    { q: "An ellipse is given by x²/16 + y²/9 = 1. Find c, the distance from the center to each focus.", a: ["sqrt(7)", "sqrt7", "√7", "2.65", "2.646"] },
+    { q: "Find the sum of the infinite geometric series: 8 + 4 + 2 + 1 + ...", a: ["16"] },
+    { q: "Expand completely (use ^ for exponents): (2x-3)^4", a: ["16x^4-96x^3+216x^2-216x+81"] }
+  ]
+};
+var order = ["easy", "medium", "hard"];
+var TOTAL_QUESTIONS = 5;
+var levelIdx, asked, score, used, current;
+
+var questionField = document.getElementById("questionField");
+var statusField = document.getElementById("statusField");
+var resultField = document.getElementById("resultField");
+var answerInput = document.getElementById("answerInput");
+var submitBtn = document.getElementById("submitBtn");
+
+function startTest() {
+  levelIdx = 1; asked = 0; score = 0;
+  used = { easy: 0, medium: 0, hard: 0 };
+  resultField.textContent = "";
+  answerInput.style.display = "";
+  submitBtn.textContent = "Submit Answer";
+  submitBtn.onclick = checkUserAnswer;
+  loadQuestion();
+}
+function loadQuestion() {
+  var level = order[levelIdx];
+  current = levels[level][used[level]];
+  used[level]++;
+  questionField.textContent = current.q;
+  statusField.textContent = "Question " + (asked + 1) + " of " + TOTAL_QUESTIONS + " • Level: " + level.toUpperCase();
+  answerInput.focus();
+}
+function normalize(s) {
+  return s.toLowerCase().replace(/[−–]/g, "-").replace(/\s+/g, "").replace(/x=|y=/g, "");
+}
+function isCorrect(input) {
+  var u = normalize(input);
+  if (current.unordered) u = u.split(",").sort().join(",");
+  return current.a.some(function (ans) {
+    if (u === ans) return true;
+    var nu = Number(u), na = Number(ans);
+    return u !== "" && !isNaN(nu) && !isNaN(na) && Math.abs(nu - na) < 0.01;
+  });
+}
+function checkUserAnswer() {
+  var raw = answerInput.value;
+  if (raw.trim() === "") { resultField.textContent = "Please enter an answer."; return; }
+  if (isCorrect(raw)) {
+    resultField.textContent = "Correct!";
+    score++;
+    if (levelIdx < order.length - 1) levelIdx++;
+  } else {
+    resultField.textContent = "Incorrect. The correct answer was: " + current.a[0];
+    if (levelIdx > 0) levelIdx--;
+  }
+  asked++;
+  answerInput.value = "";
+  if (asked >= TOTAL_QUESTIONS) finishTest(); else loadQuestion();
+}
+function finishTest() {
+  statusField.textContent = "Score: " + score + " / " + TOTAL_QUESTIONS;
+  questionField.textContent = "Test Complete! Final Placement: " + order[levelIdx].toUpperCase() + " Level";
+  answerInput.style.display = "none";
+  submitBtn.textContent = "Restart Test";
+  submitBtn.onclick = startTest;
+}
+answerInput.addEventListener("keydown", function (e) { if (e.key === "Enter") submitBtn.click(); });
+startTest();
+</script>
+</body>
+</html>
