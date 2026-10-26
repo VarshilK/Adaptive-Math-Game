@@ -1,0 +1,108 @@
+var difficultyLevel = "easy";
+var questionIndex = 1;
+var currentAnswer = "";
+
+function loadQuestion() {
+    var target = document.getElementById("questionField");
+
+    if (difficultyLevel == "easy") {
+        if (questionIndex == 1) {
+            target.innerHTML = "Question 1: What is the value of the expression: -7 + 12 - (-4)?";
+            currentAnswer = "9";
+        }
+        else if (questionIndex == 2) {
+            target.innerHTML = "Question 2: Evaluate the expression: (-24) ÷ (-6) × (-2)";
+            currentAnswer = "-8";
+        }
+        else if (questionIndex == 3) {
+            target.innerHTML = "Question 3: Solve this equation: x - 7 = -15";
+            currentAnswer = "-8";
+        }
+        else if (questionIndex == 4) {
+            target.innerHTML = "Question 4: Solve this linear equation: 3y + 5 = -13";
+            currentAnswer = "-6";
+        }
+        else if (questionIndex == 5) {
+            target.innerHTML = "Question 5: Solve this equation: 5x - 3 = 2x + 9";
+            currentAnswer = "4";
+        }
+    }
+    else if (difficultyLevel == "medium") {
+        if (questionIndex == 1) {
+            target.innerHTML = "Question 1 (Pythagorean Theorem): A right triangle has legs of length 6 cm and 8 cm. What is the length of the hypotenuse?";
+            currentAnswer = "10";
+        }
+        else if (questionIndex == 2) {
+            target.innerHTML = "Question 2 (Basic Geometry): A rectangle has a length of 12 meters and a width of 5 meters. What is the perimeter of the rectangle?";
+            currentAnswer = "34";
+        }
+        else if (questionIndex == 3) {
+            target.innerHTML = "Question 3 (Quadratic Equations): Solve the quadratic equation for x: x² - 5x + 6 = 0.";
+            currentAnswer = "2, 3";
+        }
+        else if (questionIndex == 4) {
+            target.innerHTML = "Question 4 (Systems of Linear Equations): Solve for x and y: 2x + y = 11, x - y = 1";
+            currentAnswer = "4, 3";
+        }
+        else if (questionIndex == 5) {
+            target.innerHTML = "Question 5: Solve the system of linear equations: 3x + 2y = 16, x + 2y = 8";
+            currentAnswer = "4, 2";
+        }
+    }
+    else if (difficultyLevel == "hard") {
+        if (questionIndex == 1) {
+            target.innerHTML = "Question 1: A population of bacteria grows according to the model P(t)=300e^(0.04t). What is the initial population?";
+            currentAnswer = "300";
+        }
+        else if (questionIndex == 2) {
+            target.innerHTML = "Question 2: Solve the logarithmic equation for x: log2(x+3) + log2(x-3) = 4";
+            currentAnswer = "5";
+        }
+        else if (questionIndex == 3) {
+            target.innerHTML = "Question 3: An ellipse is given by x^2/16 + y^2/9 = 1. Identify its foci.";
+            currentAnswer = "sqrt(7)";
+        }
+        else if (questionIndex == 4) {
+            target.innerHTML = "Question 4: Find the sum of the infinite geometric series: 8 + 4 + 2 + 1 + ...";
+            currentAnswer = "16";
+        }
+        else if (questionIndex == 5) {
+            target.innerHTML = "Question 5: What is the completely expanded form of (2x-3)^4?";
+            currentAnswer = "16x^4-96x^3+216x^2-216x+81";
+        }
+    }
+}
+
+function checkUserAnswer() {
+    var userInput = document.getElementById("answerInput").value;
+    var resultText = document.getElementById("resultField");
+
+    userInput = userInput.toLowerCase().replace(" ", "").replace("x=", "").replace("y=", "");
+    var expected = currentAnswer.toLowerCase().replace(" ", "").replace("x=", "").replace("y=", "");
+
+    if (userInput == expected) {
+        resultText.innerHTML = "Correct!";
+        
+        if (difficultyLevel == "easy") {
+            difficultyLevel = "medium";
+        }
+        else if (difficultyLevel == "medium") {
+            difficultyLevel = "hard";
+        }
+    } 
+    else {
+        resultText.innerHTML = "Incorrect. The correct answer was: " + currentAnswer;
+    }
+
+    questionIndex = questionIndex + 1;
+
+    if (questionIndex > 5) {
+        document.getElementById("questionField").innerHTML = "Test Complete! Final Placement: " + difficultyLevel.toUpperCase() + " Level";
+    } else {
+        loadQuestion();
+    }
+}
+
+window.onload = function() {
+    loadQuestion();
+};
