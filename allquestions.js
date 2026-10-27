@@ -46,4 +46,7 @@ function answercheck(difficulty, ql){
         "16",
         "16x^4-96x^3+216x^2-216x+81"
     ];
+    if(difficulty == 1)return easy_answer[ql-1];
+    if(difficulty == 2)return medium_answer[ql-1];
+    if(difficulty == 3)return hard_answer[ql-1];
 }
