@@ -24,3 +24,26 @@ function choosequestion(difficulty, ql) {
     if(difficulty == 2)return medium_questions[ql-1];
     if(difficulty == 3)return hard_questions[ql-1];
 }
+function answercheck(difficulty, ql){
+    const easy_answer=[
+        "9",
+        "-8",
+        "-8",
+        "-6",
+        "4"
+    ];
+    const medium_answer=[
+        "10 cms",
+        "34 meters",
+        "2 or 3",
+        "x=4 y=3",
+        "x=4 y=2"
+    ];
+    const hard_answer=[
+        "300",
+        "5",
+        "sqrt(7)",
+        "16",
+        "16x^4-96x^3+216x^2-216x+81"
+    ];
+}
