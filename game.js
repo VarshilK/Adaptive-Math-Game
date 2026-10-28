@@ -35,7 +35,6 @@ function answercheck() {
 }
 
 function showQuestion() {
-    document.getElementById("demo").innerText =
-        choosequestion(difficulty, ql);
+    document.getElementById("demo").innerText = choosequestion(difficulty, ql);
 }
 
