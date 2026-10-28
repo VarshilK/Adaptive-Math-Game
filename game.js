@@ -66,7 +66,7 @@ function submitAnswer() {
         return;
     }
 
-    var correctAns = answercheck(currentDifficulty, currentQuestionIndex);
+    var correctAns = answerback(currentDifficulty, currentQuestionIndex);
     var feedback = document.getElementById("feedback");
 
     // Check correctness and scale difficulty
