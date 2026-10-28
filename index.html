@@ -4,24 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adaptive Math Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Adaptive Math Game</h2>
-  <div id="start-page">
-    <p>Start at Easy.<br>
-      Correct answers raise your level, wrong answers lower it.<br>
-      Please enter a single letter as your answer--- A, B, C, or D.</p>
-    <button type="button" onclick="startGame()">Start</button>
+  <div class="game-container">
+    <h2>Adaptive Math Game</h2>
+    
+    <div id="start-page">
+      <p>Start at Easy.<br>
+        Correct answers raise your level, wrong answers lower it.<br>
+        Please enter a single letter as your answer--- A, B, C, or D.</p>
+      <button type="button" onclick="startGame()">Start</button>
+    </div>
+
+    <div id="game-page" hidden>
+      <p id="demo" style="white-space: pre-line; text-align: left;"></p>
+      <input type="text" id="answer" placeholder="Enter A, B, C or D">
+      <button type="button" onclick="myFunction()">Submit Answer</button>
+    </div>
   </div>
-  <div id="game-page" hidden>
-    <p id="demo"></p>
-    <input type="text" id="answer" placeholder="Enter A, B, C or D">
-    <button type="button" onclick="myFunction()">Submit Answer</button>
-  </div>
-  <div id="summary-page" hidden>
-    <h2>Summary</h2>
-    <p id="result"></p>
-  </div>
+
   <script src="allquestions.js"></script>
   <script src="game.js"></script>
 </body>
