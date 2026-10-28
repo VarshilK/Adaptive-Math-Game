@@ -1,7 +1,7 @@
 let difficulty = 1;
 let ql = 1;
 let correctCount = 0;
-const difficulty_name=["beginner","normal","master"];
+const skill_name=["noob","noob","noob","pro","pro","god"];
 function startGame() {
     document.getElementById("start-page").hidden = true;
     document.getElementById("game-page").hidden = false;
@@ -52,6 +52,6 @@ function showSummary() {
 
     document.getElementById("result").innerText =
         "Correct answers: " + correctCount + " / 5" +
-        "\nFinal level: " + difficulty_name[difficulty-1];
+        "\nFinal level: " + skill_name[correctCount-1];
 }
 
