@@ -33,11 +33,11 @@ function answercheck(difficulty, ql){
         "4"
     ];
     const medium_answer=[
-        "10 cms",
-        "34 meters",
+        "10",
+        "34",
         "2 or 3",
-        "x=4 y=3",
-        "x=4 y=2"
+        "x=4, y=3",
+        "x=4, y=2"
     ];
     const hard_answer=[
         "300",
