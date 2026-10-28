@@ -1,6 +1,12 @@
 let difficulty = 1;
 let ql = 1;
 
+function startGame() {
+    document.getElementById("start-page").hidden = true;
+    document.getElementById("game-page").hidden = false;
+    showQuestion();
+}
+
 function myFunction() {
     if (!answercheck()) return;
     ql = ql % 5 + 1;
@@ -16,6 +22,7 @@ function answercheck() {
         alert("Please enter A, B, C, or D");
         return false;
     }
+
     if (answer_player === correctAnswer) {
         difficulty = Math.min(3, difficulty + 1);
         alert("You are correct!");
@@ -23,6 +30,7 @@ function answercheck() {
         difficulty = Math.max(1, difficulty - 1);
         alert("You are wrong! The correct answer is " + correctAnswer);
     }
+
     return true;
 }
 
@@ -31,4 +39,3 @@ function showQuestion() {
         choosequestion(difficulty, ql);
 }
 
-showQuestion();
