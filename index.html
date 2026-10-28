@@ -13,19 +13,25 @@
     <div id="start-page">
       <p>Start at Easy.<br>
         Correct answers raise your level, wrong answers lower it.<br>
-        Please enter a single letter as your answer--- A, B, C, or D.</p>
+        Select A, B, C, or D.</p>
       <button type="button" onclick="startGame()">Start</button>
     </div>
 
     <div id="game-page" hidden>
       <p id="demo" style="white-space: pre-line; text-align: left;"></p>
-      <input type="text" id="answer" placeholder="Enter A, B, C or D">
-      <button type="button" onclick="myFunction()">Submit Answer</button>
+      <!-- <input type="text" id="answer" placeholder="Enter A, B, C or D"> -->
+      <button id="qlA" onclick="myFunction(1)">A</button><br>
+      <button id="qlB" onclick="myFunction(2)">B</button><br>
+      <button id="qlC" onclick="myFunction(3)">C</button><br>
+      <button id="qlD" onclick="myFunction(4)">D</button><br>
+      <button id="nextque" onclick="nextQuestion()" hidden>Next Question</button>
+      <!-- <button type="button" onclick="myFunction()">Submit Answer</button> -->
     </div>
 
     <div id="summary-page" hidden>
       <h3>Round Complete!</h3>
       <p id="result"></p>
+      <button onclick="restart()">Play again!</button>
     </div>
   </div>
 
