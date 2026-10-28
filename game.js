@@ -52,6 +52,6 @@ function showSummary() {
 
     document.getElementById("result").innerText =
         "Correct answers: " + correctCount + " / 5" +
-        "\nFinal level: " + skill_name[correctCount-1];
+        "\nFinal level: " + skill_name[correctCount];
 }
 
