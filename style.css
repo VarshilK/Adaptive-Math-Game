@@ -25,7 +25,6 @@ body {
   align-items: center;
   background: #0f172a;
   color: var(--text-main);
-  overflow: hidden;
   position: relative;
   padding: 20px;
 }
@@ -34,7 +33,7 @@ body {
 body::before,
 body::after {
   content: '';
-  position: absolute;
+  position: fixed;
   border-radius: 50%;
   filter: blur(80px);
   z-index: 0;
@@ -101,26 +100,6 @@ p {
   margin-bottom: 24px;
 }
 
-input[type="text"] {
-  width: 100%;
-  padding: 16px 20px;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  outline: none;
-  backdrop-filter: blur(10px);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-input[type="text"]:focus {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 20px var(--glow-color);
-}
-
 button {
   width: 100%;
   padding: 16px 24px;
@@ -135,9 +114,11 @@ button {
   transition: all 0.3s ease;
 }
 
-button:hover {
-  background: linear-gradient(135deg, rgba(0, 242, 254, 0.6), rgba(79, 172, 254, 0.6));
-  transform: translateY(-2px);
+@media (hover: hover) {
+  button:hover {
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.6), rgba(79, 172, 254, 0.6));
+    transform: translateY(-2px);
+  }
 }
 
 /* End page */
@@ -163,4 +144,23 @@ button:hover {
   line-height: 2;
   white-space: pre-line;
   overflow-wrap: anywhere;
+}
+button.green,
+button.green:hover {
+  background: #4caf50;
+}
+
+button.red,
+button.red:hover {
+  background: #e53935;
+}
+
+#start-page,
+#game-page {
+  width: 100%;
+}
+
+#game-page button,
+#start-page button {
+  margin-bottom: 12px;
 }
