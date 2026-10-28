@@ -16,7 +16,6 @@ function answercheck() {
         alert("Please enter A, B, C, or D");
         return false;
     }
-
     if (answer_player === correctAnswer) {
         difficulty = Math.min(3, difficulty + 1);
         alert("You are correct!");
@@ -24,7 +23,6 @@ function answercheck() {
         difficulty = Math.max(1, difficulty - 1);
         alert("You are wrong! The correct answer is " + correctAnswer);
     }
-
     return true;
 }
 
