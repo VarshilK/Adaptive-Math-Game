@@ -28,7 +28,7 @@ function choosequestion(difficulty, ql) {
     if (difficulty === 3) return hard_questions[ql - 1];
 }
 
-function answercheck(difficulty, ql) {
+function answerback(difficulty, ql) {
     const easy_answer = ["B", "A", "B", "A", "C"];
     const medium_answer = ["D", "B", "A", "B", "B"];
     const hard_answer = ["A", "C", "D", "D", "B"];
