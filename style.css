@@ -164,3 +164,18 @@ button.red:hover {
 #start-page button {
   margin-bottom: 12px;
 }
+#timer {
+    display: block;
+    width: fit-content;
+    margin: 10px auto 15px;
+    padding: 6px 16px;
+    background-color: #eaf3ff;
+    color: #2563eb;
+    border: 1.5px solid #bfdbfe;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    font-variant-numeric: tabular-nums;
+}
