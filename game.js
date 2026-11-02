@@ -143,7 +143,7 @@ function updateLeaderboard() {
             break;
         }
     }
-    let ot = "Leaderboard\n";
+    let ot = "";
     for (let i = 0; i < leaderboard.length; i++) {
         ot += (i + 1) + ". " + leaderboard[i].name + ": " + leaderboard[i].score + "/5 " + skill_name[leaderboard[i].score] + "\n";
     }
