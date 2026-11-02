@@ -6,6 +6,11 @@ const skill_name=["noob","noob","noob","pro","pro","god"];
 const choicename=["A","B","C","D"];
 let answered = false;
 let Questionbook=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+let isLight = false;
+const leaderboard=[];
+let startTime = 0;
+let endTime = 0;
+let timerInterval = null;
 
 function pickQuestion() {
     do {
@@ -15,8 +20,14 @@ function pickQuestion() {
 }
 
 function startGame() {
+    if(document.getElementById("playername").value.trim().length<=0)return;
     document.getElementById("start-page").hidden = true;
     document.getElementById("game-page").hidden = false;
+    clearInterval(timerInterval);
+    startTime = Date.now();
+    endTime = 0;
+    document.getElementById("timer").innerText = "Time: 0 seconds";
+    timerInterval = setInterval(updateTimer, 1000);
     pickQuestion();
     showQuestion();
 }
@@ -52,8 +63,21 @@ function showQuestion() {
 function showSummary() {
     document.getElementById("game-page").hidden = true;
     document.getElementById("summary-page").hidden = false;
+
+    const timeUsed = (endTime - startTime) / 1000;
+    const timeScore = 100 / (1 + timeUsed / 60);
+    const accuracyScore = (correctCount / 5) * 100;
+    const finalScore = 0.7 * accuracyScore + 0.3 * timeScore;
+
     document.getElementById("result").innerText =
-        "Correct answers: " + correctCount + " / 5" + "\nFinal level: " + skill_name[correctCount];
+        "Correct answers: " + correctCount + " / 5" +
+        "\nTime used: " + timeUsed.toFixed(1) + " seconds" +
+        "\nAccuracy Score: " + accuracyScore.toFixed(1) +
+        "\nTime Score: " + timeScore.toFixed(1) +
+        "\nFinal Score: " + finalScore.toFixed(1) +
+        "\nFinal level: " + skill_name[correctCount];
+
+    updateLeaderboard(finalScore, timeUsed);
 }
 
 function clearColors() {
@@ -68,6 +92,9 @@ function nextQuestion(){
     document.getElementById("nextque").hidden = true;
     clearColors();
     if (ql === 5) {
+        endTime = Date.now();
+        clearInterval(timerInterval);
+        timerInterval = null;
         showSummary();
         return;
     }
@@ -80,6 +107,11 @@ function nextQuestion(){
 }
 
 function restart(){
+    clearInterval(timerInterval);
+    timerInterval = null;
+    startTime = 0;
+    endTime = 0;
+    document.getElementById("timer").innerText = "Time: 0 seconds";
     document.getElementById("game-page").hidden = true;
     document.getElementById("summary-page").hidden = true;
     document.getElementById("start-page").hidden = false;
@@ -90,4 +122,67 @@ function restart(){
     clearColors();
     Questionbook=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     document.getElementById("nextque").innerText = "Next Question";
+    document.getElementById("playername").value = "";
+}
+
+function backchange(){
+    if (isLight) {
+        document.body.classList.remove("light");
+        isLight = false;
+    } else {
+        document.body.classList.add("light");
+        isLight = true;
+    }
+}
+
+function updateLeaderboard(finalScore, timeUsed) {
+    let name = document.getElementById("playername").value.trim();
+    let currentPlayer = null;
+    for (let i = 0; i < leaderboard.length; i++) {
+        if (leaderboard[i].name === name) {
+            currentPlayer = leaderboard[i];
+            break;
+        }
+    }
+    if (currentPlayer === null) {
+        currentPlayer = {
+                name: name,
+                score: finalScore,
+                correct: correctCount,
+                time: timeUsed
+            };
+        leaderboard.push(currentPlayer);
+    } 
+    else {
+        if (finalScore > currentPlayer.score) {
+            currentPlayer.score = finalScore;
+            currentPlayer.correct = correctCount;
+            currentPlayer.time = timeUsed;
+        }
+    }
+    for (let i = 0; i < leaderboard.length - 1; i++) {
+        for (let j = i + 1; j < leaderboard.length; j++) {
+            if (leaderboard[j].score > leaderboard[i].score) {
+                let t = leaderboard[i];
+                leaderboard[i] = leaderboard[j];
+                leaderboard[j] = t;
+            }
+        }
+    }
+    for (let i = 0; i < leaderboard.length; i++) {
+        if (leaderboard[i] === currentPlayer) {
+            document.getElementById("result").innerText += "\nYour best-score rank: " + (i + 1);
+            break;
+        }
+    }
+    let ot = "";
+    for (let i = 0; i < leaderboard.length; i++) {
+        ot += (i + 1) + ". " + leaderboard[i].name + ": " + leaderboard[i].score.toFixed(1) + " (" + leaderboard[i].correct + "/5, " + leaderboard[i].time.toFixed(1) + "s) " + skill_name[leaderboard[i].correct] + "\n";
+    }
+    document.getElementById("leaderboard").innerText = ot;
+}
+
+function updateTimer() {
+    const timeUsed = Math.floor((Date.now() - startTime) / 1000);
+    document.getElementById("timer").innerText = "Time: " + timeUsed + " seconds";
 }
