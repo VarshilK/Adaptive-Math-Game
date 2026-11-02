@@ -6,6 +6,8 @@ const skill_name=["noob","noob","noob","pro","pro","god"];
 const choicename=["A","B","C","D"];
 let answered = false;
 let Questionbook=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+let isLight = false;
+const leaderboard=[];
 
 function pickQuestion() {
     do {
@@ -15,6 +17,7 @@ function pickQuestion() {
 }
 
 function startGame() {
+    if(document.getElementById("playername").value.trim().length<=0)return;
     document.getElementById("start-page").hidden = true;
     document.getElementById("game-page").hidden = false;
     pickQuestion();
@@ -54,6 +57,7 @@ function showSummary() {
     document.getElementById("summary-page").hidden = false;
     document.getElementById("result").innerText =
         "Correct answers: " + correctCount + " / 5" + "\nFinal level: " + skill_name[correctCount];
+    updateLeaderboard();
 }
 
 function clearColors() {
@@ -90,4 +94,58 @@ function restart(){
     clearColors();
     Questionbook=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     document.getElementById("nextque").innerText = "Next Question";
+    document.getElementById("playername").value = "";
+}
+
+function backchange(){
+    if (isLight) {
+        document.body.classList.remove("light");
+        isLight = false;
+    } else {
+        document.body.classList.add("light");
+        isLight = true;
+    }
+}
+
+function updateLeaderboard() {
+    let name = document.getElementById("playername").value.trim();
+    let currentPlayer = null;
+    for (let i = 0; i < leaderboard.length; i++) {
+        if (leaderboard[i].name === name) {
+            currentPlayer = leaderboard[i];
+            break;
+        }
+    }
+    if (currentPlayer === null) {
+        currentPlayer = {
+                name: name,
+                score: correctCount
+            };
+        leaderboard.push(currentPlayer);
+    } 
+    else {
+        if (correctCount > currentPlayer.score) {
+            currentPlayer.score = correctCount;
+        }
+    }
+    for (let i = 0; i < leaderboard.length - 1; i++) {
+        for (let j = i + 1; j < leaderboard.length; j++) {
+            if (leaderboard[j].score > leaderboard[i].score) {
+                let t = leaderboard[i];
+                leaderboard[i] = leaderboard[j];
+                leaderboard[j] = t;
+            }
+        }
+    }
+    for (let i = 0; i < leaderboard.length; i++) {
+        if (leaderboard[i] === currentPlayer) {
+            document.getElementById("result").innerText += "\nYour best-score rank: " + (i + 1);
+            break;
+        }
+    }
+    let ot = "Leaderboard\n";
+    for (let i = 0; i < leaderboard.length; i++) {
+        ot += (i + 1) + ". " + leaderboard[i].name + ": " + leaderboard[i].score + "/5 " + skill_name[leaderboard[i].score] + "\n";
+    }
+    document.getElementById("leaderboard").innerText = ot;
 }
