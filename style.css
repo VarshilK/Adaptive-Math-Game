@@ -164,18 +164,79 @@ button.red:hover {
 #start-page button {
   margin-bottom: 12px;
 }
-#timer {
-    display: block;
-    width: fit-content;
-    margin: 10px auto 15px;
-    padding: 6px 16px;
-    background-color: #eaf3ff;
-    color: #2563eb;
-    border: 1.5px solid #bfdbfe;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-    font-variant-numeric: tabular-nums;
+
+#Themebtn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  width: auto;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+}
+
+body {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+body.light {
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-shadow: 0 30px 60px rgba(100, 120, 160, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --text-main: #1e293b;
+  --text-sub: rgba(30, 41, 59, 0.8);
+  --accent-cyan: #2b8cd9;
+  background: #f1f5f9;
+}
+
+body.light::before,
+body.light::after {
+  opacity: 0.3;
+}
+
+body.light button {
+  color: #1e293b;
+}
+
+body.light button.green,
+body.light button.red {
+  color: #ffffff;
+}
+
+body.light h2 {
+  text-shadow: none;
+}
+
+#leaderboard {
+    white-space: pre-line;
+}
+
+#playername {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: var(--glass-bg);
+    color: var(--text-main);
+    font-size: 1rem;
+}
+
+#playername::placeholder {
+    color: var(--text-sub);
+}
+
+#playername:focus {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 2px;
+}
+
+body.light #playername {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #94a3b8;
+    color: #1e293b;
+}
+
+body.light #playername::placeholder {
+    color: #64748b;
 }
