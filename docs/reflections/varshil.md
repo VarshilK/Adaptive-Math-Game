@@ -1,1 +1,6 @@
+Conclusion Reflection: 
+
+I learned from this project because there were many issues and moments of accomplishment that came from being team lead. Our group’s issues were understanding how to stay committed and persistent in the project, and some issues I had myself were keeping each day’s work for each person sufficient and balancing out the work. The accomplishments our group had were that we were able to split up the work, commit the code for each person, split up the task between testing, building, ui, q and a, and releases. Personally, this project taught me alot from leadership skills, tough challenges and days where nothing was moving forward. I learned how to manage a team to build a project and gained many skills along the way.
+
+Self Evaluation: I feel like this project was a success, because we had a strong team collaboration with everyone working together, and their assigned roles. I made sure that everyone had work to do in the project and learned from each other. This project was an amazing way to connect with my peers and build a big project from start to finish. 
 
