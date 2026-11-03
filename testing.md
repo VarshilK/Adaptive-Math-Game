@@ -15,5 +15,5 @@ Live game: https://varshilk.github.io/Adaptive-Math-Game/
 | 3 | Level | Got some right and some wrong | Level goes up and down | Pass |
 | 4 | Repeats | Played a full game | No question shows twice | Pass |
 | 5 | End screen | Finished all 5 questions | Timer stops and score shows | Pass |
-| 6 | Leaderboard | Played twice with the same name | Best score is kept | Pass |
+| 6 | Leaderboard | Played twice with the same name | Best score is kept | Fail |
 | 7 | Restart and theme | Pressed Play again and Change Theme | Game resets, theme changes | Pass |
