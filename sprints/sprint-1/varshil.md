@@ -15,3 +15,7 @@ Backlog change: we should have created issues for the main features and assigned
 Sprint Retrospective (not code-related)
 Assigning tasks helped divide the work, but the progress and contribution records were not organized enough on GitHub.
 Goal for next sprint: clarify the remaining work and keep the team's versions and responsibilities consistent.
+
+
+Estimation check
+I had an estimate time of 25 minutes while it actually took 30 minutes to do this
