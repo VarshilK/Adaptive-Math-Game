@@ -14,5 +14,5 @@
 
 **Gamplay:** 
 
-**[Start It!!!](https://github.com/user-attachments/assets/959e99f0-5fd1-45aa-9201-b803d78489de)**
+https://github.com/user-attachments/assets/959e99f0-5fd1-45aa-9201-b803d78489de
 
