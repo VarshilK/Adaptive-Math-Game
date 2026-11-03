@@ -1,5 +1,5 @@
 # Adaptive-Math-Game
-Release v1.0: Adaptive Math Game with leaderboard, ranking and score
+Release v1.0: Adaptive Math Game with leaderboard, Light/Dark Mode, ranking and score
 
 Game Link: https://varshilk.github.io/Adaptive-Math-Game/
 
