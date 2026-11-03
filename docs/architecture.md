@@ -3,13 +3,16 @@
 ## Overview
 Our game is an Adaptive Math Diagnostic. You get 5 math questions. If you get one right the next one is harder, and if you get it wrong the next one is easier.
 
+## Team
+Varshil was team leader and came up with most of the game's features. Liming, Jack, Bella and Rohin were developers. Bella was responsible for testing.
+
 ## Files
 
 | File | Owner | Functions | Used by |
 | --- | --- | --- | --- |
 | index.html | Rohin (built with Varshil and Liming) | Start page, game page, summary page, leaderboard, theme button. Loads allquestions.js and game.js | The player |
 | style.css | Varshil, Liming, Rohin | Design, colors, layout, light/dark theme | index.html |
-| allquestions.js | Jack (questions), Bella (medium questions), Liming and Varshil (code) | choosequestion(difficulty, ql), answerback(difficulty, ql) | game.js |
+| allquestions.js | Jack (questions), Bella (medium questions and testing), Liming and Varshil (code) | choosequestion(difficulty, ql), answerback(difficulty, ql) | game.js |
 | game.js | Liming (main code), Jack (timer), Rohin (combined both versions) | pickQuestion(), startGame(), updateTimer(), myFunction(choice), answercheck(answer_player), showQuestion(), showSummary(), clearColors(), nextQuestion(), restart(), backchange(), updateLeaderboard(finalScore, timeUsed) | index.html buttons |
 
 ## Other Files
