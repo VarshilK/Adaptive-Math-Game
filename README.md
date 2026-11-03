@@ -7,7 +7,14 @@
 
 **Controls:** Answer the questions correctly as fast as possible!!
 
-**Team ReaDy:** Lead: Varshil,  Designers: Liming, Bella, Rohin, Jack
+**Team ReaDy:**
+- Varshil - Team Lead
+- Liming - Developer
+- Bella - Developer
+- Rohin Vaka - Developer
+- Jack - Developer
+
+**Rohin's Contributions:** Helped work on and integrate code in `index.html`, `answerchecker`, `allquestions.js`, `game.js`, and `style.css`.
 
 **Sprint 1:** Leaderboard branch---Almost the most important features <br>
 **Sprint 2:** Main branch---which combine 2 versions codes😊
