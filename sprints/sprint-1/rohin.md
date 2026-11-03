@@ -1,18 +1,20 @@
-Sprint 1 - Rohin Vaka
+# Sprint 1 — Rohin Vaka (Developer)
 
-Assigned Tasks
-- Write the answer checker code.
-- Work on the index.html file.
-- Coordinate with Liming to connect the different stages of the game.
+## My work this sprint
+| Work | Estimate (min) | Actual (min) | +/- | Link |
+| --- | --- | --- | --- | --- |
+| Answer checker | Not tracked | Not tracked | - | [commit bb553c0](https://github.com/VarshilK/Adaptive-Math-Game/commit/bb553c0) |
 
-Work Completed
-My main task was working on the answer checker for the math game. At first, I had a difficult time understanding how to write the code, but with some help from my dad, I started understanding how it worked and how the different parts connected.
+I didn't make GitHub issues or PRs this sprint. My work was committed straight to the repo.
 
-Challenges
-One of my biggest challenges was not knowing where to start when I first got assigned the answer checker. I was unfamiliar with some of the coding concepts, so it took some time to understand what I was doing.
+## Sprint Review (code-related)
+- My main task was the answer checker. I had a hard time at first because I didn't know where to start. With some help from my dad I understood how it worked and got it done.
+- Later the team changed the game to A, B, C, D buttons, so the answer checking moved into answercheck() in game.js.
+- Backlog change: we should have made issues for each part so the work was easier to track.
 
-What I Learned
-Throughout this sprint, I learned some basic coding terms like variables, strings, booleans, conditions, and comparison operators. I also started understanding how JavaScript works with HTML to make a website functional.
+## Sprint Retrospective (not code-related)
+- It was hard at first because I was new to a lot of the coding ideas. I learned variables, strings, booleans, conditions and comparison operators, and how JavaScript works with HTML.
+- Goal for next sprint: ask my team for help sooner when I'm stuck.
 
-Reflection
-Overall, Sprint 1 was a learning experience for me. Although I struggled in the beginning, I eventually understood more about how the code worked and became more comfortable working with it.
+## Estimation check
+- I didn't write estimates this sprint. Next time I will put an estimate on each task before I start.
