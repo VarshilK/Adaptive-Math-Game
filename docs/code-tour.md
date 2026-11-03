@@ -1,28 +1,20 @@
 # Code Tour
 
-Users will be prompted to enter there name and answer some math questions. Questions will be randomly selected from a pool. The game will check if the answers are correct. The difficulty can change based on how the user is doing. A timer will be used to track how long the user takes. After 5 questions the game will show a summary of how the user has done. The leaderboard will track the scores. The theme can be changed and the game reset.
+Users will be prompted to enter their name and answer some math questions. Questions will be randomly selected from a pool. The game will check if the answers are correct. The difficulty can change based on how the user is doing. A timer will be used to track how long the user takes. After 5 questions the game will show a summary of how the user has done. The leaderboard will track the scores. The theme can be changed and the game reset.
 
 ## Features
 
 | # | Feature | Functions | Responsible | Developed by |
-
-|---| --- | --- | --- | --- |
-
+|---|---|---|---|---|
 | 1 | Start Game | startGame() index.html start page | Rohin, Liming | Varshil developed the initial startGame() and the layout of the page. Liming developed the final startGame(). Rohin was responsible for the index.html and making sure both versions of the game.js worked with it. |
-
-| 2 | Select Question | pickQuestion(), choosequestion(), showQuestion() | Jack, Bella | Jack developed all 15 questions and the difficult question. Bella developed the medium question. Liming and Varshil merged all the questions into allquestions.js. Liming developed the pickQuestion() function. |
-
+| 2 | Select Question | pickQuestion(), choosequestion(), showQuestion() | Jack, Bella | Jack developed all 15 questions and the hard question code. Bella developed the medium question code. Liming and Varshil merged all the questions into allquestions.js. Liming developed the pickQuestion() function. |
 | 3 | Check Answer | myFunction(), answercheck(), answerback() | Rohin, Jack | Rohin developed the initial answer check. Jack developed the answer key. Liming developed the final answercheck() function after we moved to using A,B,C,D buttons. |
-
 | 4 | Adjust Difficulty | answercheck() | Liming, Varshil | Varshil created the initial game logic with the 3 difficulty levels. Liming developed the final increase and decrease difficulty function. |
-
 | 5 | Next Question & Timer | nextQuestion(), clearColors(), updateTimer() | Jack, Liming | Jack developed the timer. Liming developed the nextQuestion() function. Rohin added Jack's timer onto Liming's game.js. |
-
 | 6 | Summary & Leaderboard | showSummary(), updateLeaderboard(), backchange() | Liming, Jack | Liming developed the leaderboard and theme button. Jack developed the time score. Rohin merged both versions to make them work. |
-
 | 7 | Restart | restart() | Liming, Jack | Liming developed the restart() function. Jack added the timer reset. |
 
-1. Start: User enters there name and presses start. The game will check the name and show the questions screen. The timer will begin.
+1. Start: User enters their name and presses start. The game will check the name and show the questions screen. The timer will begin.
 
 2. Select Question: A question will be randomly selected from the difficulty the user is on. The question will be recorded to ensure no duplicates.
 
@@ -46,9 +38,9 @@ game.js startGame() [line 22-35](https://github.com/VarshilK/Adaptive-Math-Game/
 
 Developed by: Liming (timer developed by Jack)
 
-If the user has entered there name it will hide the start screen and show the game. It will start the timer and select a question.
+If the user has entered their name it will hide the start screen and show the game. It will start the timer and select a question.
 
-Must: User must enter there name.
+Must: User must enter their name.
 
 ## 2. Timer
 
