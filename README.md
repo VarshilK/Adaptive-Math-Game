@@ -5,11 +5,7 @@ Game Link: https://varshilk.github.io/Adaptive-Math-Game/
 
 Controls: Answer the questions correctly as fast as possible!!
 
-Team ReaDy: 
-
-Lead: Varshil
-
-Designers: Liming, Bella, Rohin, Jack
+Team ReaDy: Lead: Varshil Designers: Liming, Bella, Rohin, Jack
 
 Gamplay Gif: 
 
