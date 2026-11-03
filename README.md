@@ -20,7 +20,7 @@
 **How to run locally:** Download the repo and open index.html in your browser, or use Live Server in VS Code.
 
 **Sprint 1:** Leaderboard branch---Almost the most important features <br>
-**Sprint 2:** Main branch---which combine 2 versions codes😊
+**Sprint 2:** Main branch---which combine 2 versions codes
 
 **Gameplay:** 
 
