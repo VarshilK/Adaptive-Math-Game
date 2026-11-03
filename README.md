@@ -3,7 +3,7 @@ Release v1.0: Adaptive Math Game with leaderboard, Light/Dark Mode, ranking and 
 
 Game Link: https://varshilk.github.io/Adaptive-Math-Game/
 
-Docs Link: **[Team Docs](https://docs.google.com/document/d/1G7DVQYt07uA0XwQDm-K6S5nd5e875La02UPHurbp7II/edit?usp=sharing)**
+Docs Link: **[Team ReaDy Docs](https://docs.google.com/document/d/1G7DVQYt07uA0XwQDm-K6S5nd5e875La02UPHurbp7II/edit?usp=sharing)**
 
 Controls: Answer the questions correctly as fast as possible!!
 
