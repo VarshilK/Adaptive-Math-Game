@@ -10,9 +10,9 @@ Users will be prompted to enter their name and answer some math questions. Quest
 | 2 | Select Question | pickQuestion(), choosequestion(), showQuestion() | Jack, Bella | Jack developed all 15 questions and the hard question code. Bella developed the medium question code. Liming and Varshil merged all the questions into allquestions.js. Liming developed the pickQuestion() function. |
 | 3 | Check Answer | myFunction(), answercheck(), answerback() | Rohin, Jack | Rohin developed the initial answer check. Jack developed the answer key. Liming developed the final answercheck() function after we moved to using A,B,C,D buttons. |
 | 4 | Adjust Difficulty | answercheck() | Liming, Varshil | Varshil created the initial game logic with the 3 difficulty levels. Liming developed the final increase and decrease difficulty function. |
-| 5 | Next Question & Timer | nextQuestion(), clearColors(), updateTimer() | Jack, Liming | Jack developed the timer. Liming developed the nextQuestion() function. Rohin added Jack's timer onto Liming's game.js. |
-| 6 | Summary & Leaderboard | showSummary(), updateLeaderboard(), backchange() | Liming, Jack | Liming developed the leaderboard and theme button. Jack developed the time score. Rohin merged both versions to make them work. |
-| 7 | Restart | restart() | Liming, Jack | Liming developed the restart() function. Jack added the timer reset. |
+| 5 | Next Question & Timer | nextQuestion(), clearColors(), updateTimer() | Jack, Liming, Rohin | Jack developed the timer. Liming developed the nextQuestion() function. Rohin added Jack's timer onto Liming's game.js. |
+| 6 | Summary & Leaderboard | showSummary(), updateLeaderboard(), backchange() | Liming, Jack, Rohin | Liming developed the leaderboard and theme button. Jack developed the time score. Rohin merged both versions so the score and time show on the summary and leaderboard. |
+| 7 | Restart | restart() | Liming, Jack, Rohin | Liming developed the restart() function. Jack developed the timer reset. Rohin added the timer reset into the final game.js. |
 
 1. Start: User enters their name and presses start. The game will check the name and show the questions screen. The timer will begin.
 
@@ -36,7 +36,7 @@ Varshil was team leader. He organised standups, assigned tasks and reviewed the 
 
 game.js startGame() [line 22-35](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L22-L35)
 
-Developed by: Liming (timer developed by Jack)
+Developed by: Liming (timer developed by Jack, added to game.js by Rohin)
 
 If the user has entered their name it will hide the start screen and show the game. It will start the timer and select a question.
 
@@ -46,7 +46,7 @@ Must: User must enter their name.
 
 game.js updateTimer() [line 24-28](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L24-L28)
 
-Developed by: Jack
+Developed by: Jack (added to the final game.js by Rohin)
 
 The updateTimer() function is contained within the startGame() function. It will run every second and show how many seconds the user has been playing. The timer has been broken down into a few functions. It will start during the startGame() function, stop during nextQuestion() after the last question and reset during restart().
 
@@ -96,7 +96,7 @@ Must: User can only select one answer.
 
 game.js answercheck() [line 44-58](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L44-L58)
 
-Developed by: Liming
+Developed by: Liming (Rohin developed the first answer checker before we changed to A,B,C,D buttons)
 
 This function will check if the users answer was correct. It will highlight the correct answer in green and incorrect in red. It will increase/decrease the difficulty.
 
@@ -106,7 +106,7 @@ Must: Answers checked. Difficulty changed.
 
 game.js nextQuestion() [line 91-107](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L91-L107), clearColors() [line 84-89](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L84-L89)
 
-Developed by: Liming (stopping timer developed by Jack)
+Developed by: Liming (stopping timer developed by Jack, added to game.js by Rohin)
 
 The clearColors() function will remove the green and red. The nextQuestion() function will move to the next question. When the user gets to question 5 the button will say finish. Once they have answered question 5 it will stop the timer and show the summary.
 
@@ -116,7 +116,7 @@ Must: 5 questions in game.
 
 game.js showSummary() [line 65-82](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L65-L82)
 
-Developed by: Liming (time score developed by Jack)
+Developed by: Liming (time score developed by Jack, added to game.js by Rohin)
 
 Once the user has completed 5 questions the game will hide and show how many they got correct. It will calculate a total score. 70% of this will be based on how many they got correct and 30% on how quickly they answered. It will show what level they got to (noob, pro or god).
 
@@ -136,7 +136,7 @@ Must: Track score. Leaderboard.
 
 game.js restart() [line 109-126](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L109-L126)
 
-Developed by: Liming (timer reset developed by Jack)
+Developed by: Liming (timer reset developed by Jack, added to game.js by Rohin)
 
 This will reset the question count, difficulty, correct answer count, questions used and timer. It will return the user to the start screen.
 
@@ -151,3 +151,16 @@ Developed by: Liming
 When the user presses change theme it will switch to dark/light mode.
 
 Must: Users can change theme.
+
+## Game Requirements
+
+| Requirement | Where it is in our code | Link | Who |
+|---|---|---|---|
+| Game state variables | difficulty, ql, correctCount and answered keep track of the game | [game.js line 1-13](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L1-L13) | Liming, Rohin (timer variables) |
+| Conditionals | answercheck() uses if/else to check if the answer is right and change the difficulty | [game.js line 47-55](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L47-L55) | Liming |
+| Functions with parameters and return values | choosequestion(difficulty, ql) returns the question. answerback(difficulty, ql) returns the right letter | [allquestions.js line 1-39](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/allquestions.js#L1-L39) | Jack, Liming, Varshil |
+| Loops | updateLeaderboard() uses for loops to find the player and sort the scores | [game.js line 141-171](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L141-L171) | Liming |
+| setInterval timer | startGame() starts the timer with setInterval | [game.js line 29-30](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L29-L30) | Jack, added to game.js by Rohin |
+| Game states (start, playing, game over) | index.html has a start page, game page and summary page. The functions hide and show them | [index.html line 17-39](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/index.html#L17-L39) | Varshil, Liming, Rohin |
+| DOM updates | showQuestion() uses innerText to put the question on the screen | [game.js line 60-63](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/game.js#L60-L63) | Liming |
+| Input | The A, B, C, D buttons use onclick to call myFunction() | [index.html line 28-31](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/index.html#L28-L31) | Liming |
