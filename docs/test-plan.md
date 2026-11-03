@@ -10,10 +10,10 @@ Live game: https://varshilk.github.io/Adaptive-Math-Game/
 
 | # | Test | What we did | What should happen | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| 1 | Name | Pressed Start with no name | Game doesn't start | |
-| 2 | Answers | Picked a right and a wrong answer | Right is green, wrong is red | |
-| 3 | Level | Got some right and some wrong | Level goes up and down | |
-| 4 | Repeats | Played a full game | No question shows twice | |
-| 5 | End screen | Finished all 5 questions | Timer stops and score shows | |
-| 6 | Leaderboard | Played twice with the same name | Best score is kept | |
-| 7 | Restart and theme | Pressed Play again and Change Theme | Game resets, theme changes | |
+| 1 | Name | Pressed Start with no name | Game doesn't start | Pass |
+| 2 | Answers | Picked a right and a wrong answer | Right is green, wrong is red | Pass |
+| 3 | Level | Got some right and some wrong | Level goes up and down | Pass |
+| 4 | Repeats | Played a full game | No question shows twice | Pass |
+| 5 | End screen | Finished all 5 questions | Timer stops and score shows | Pass |
+| 6 | Leaderboard | Played twice with the same name | Best score is kept | Pass |
+| 7 | Restart and theme | Pressed Play again and Change Theme | Game resets, theme changes | Pass |
