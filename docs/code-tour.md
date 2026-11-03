@@ -28,7 +28,7 @@ Users will be prompted to enter their name and answer some math questions. Quest
 
 7. Restart: User can start a new test. The previous test should be cleared so new questions can be displayed.
 
-Varshil was team leader. He organised standups, assigned tasks and reviewed the designs. Bella was responsible for testing.
+Varshil was team leader. He came up with most of the game's features, organised standups, assigned tasks and reviewed the designs. Bella was responsible for testing.
 
 ## Function Details
 
@@ -77,6 +77,8 @@ Must: Question and 4 options displayed.
 allquestions.js choosequestion() [line 1-29](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/allquestions.js#L1-L29), answerback() [line 31-39](https://github.com/VarshilK/Adaptive-Math-Game/blob/84e896716ae95e5fc298df46bb6264296fb19167/allquestions.js#L31-L39)
 
 Developed by: Questions were developed by Jack. Questions were coded by Liming and Varshil.
+
+Tested by: Bella
 
 The choosequestion() function has 5 easy, 5 medium and 5 hard questions. It will return the question based on the current difficulty. The answerback() function will return the correct letter.
 
