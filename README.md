@@ -9,6 +9,8 @@ Controls: Answer the questions correctly as fast as possible!!
 
 Team ReaDy: Lead: Varshil,  Designers: Liming, Bella, Rohin, Jack
 
+Sprint 1: Leaderboard(Almost the most important features)   branch Sprint 2: Main(which combine 2 versions codes)
+
 Gamplay: 
 
 https://github.com/user-attachments/assets/959e99f0-5fd1-45aa-9201-b803d78489de
