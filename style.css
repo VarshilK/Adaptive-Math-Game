@@ -270,18 +270,6 @@ body.light #playername::placeholder {
   overflow-wrap: anywhere;
 }
 
-@media (max-width: 1100px) {
-  body { flex-direction: column; }
-  #leaderboard-panel {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 90%;
-    max-width: 520px;
-    margin-top: 20px;
-  }
-}
-
 #timer {
   display: block;
   width: fit-content;
@@ -295,4 +283,151 @@ body.light #playername::placeholder {
   font-weight: bold;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
   font-variant-numeric: tabular-nums;
+}
+
+/* Responsive sizes */
+html {
+  overflow-x: clip;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(16px, 3vw, 48px);
+  padding-top: clamp(76px, 8vw, 110px);
+}
+
+.game-container {
+  width: 100%;
+  max-width: 650px;
+  min-width: 0;
+  padding: clamp(18px, 4vw, 48px);
+  border-radius: clamp(16px, 3vw, 28px);
+}
+
+#start-page,
+#game-page,
+#summary-page {
+  width: 100%;
+  min-width: 0;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  margin-bottom: clamp(14px, 2vw, 24px);
+  overflow-wrap: anywhere;
+}
+
+#summary-page h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+}
+
+p {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  margin-bottom: clamp(14px, 2vw, 24px);
+  overflow-wrap: anywhere;
+}
+
+button {
+  max-width: 100%;
+  min-height: 44px;
+  padding: clamp(12px, 1.5vw, 18px)
+           clamp(14px, 2vw, 26px);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  border-radius: clamp(10px, 2vw, 16px);
+  overflow-wrap: anywhere;
+}
+
+#playername {
+  min-width: 0;
+  max-width: 100%;
+  padding: clamp(12px, 1.5vw, 16px);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+}
+
+#result {
+  padding: clamp(12px, 2.5vw, 24px);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.7;
+}
+
+#timer {
+  max-width: 100%;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  overflow-wrap: anywhere;
+}
+
+#Themebtn {
+  top: clamp(12px, 2vw, 24px);
+  left: clamp(12px, 2vw, 24px);
+  max-width: calc(100% - 24px);
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+}
+
+#leaderboard-panel {
+  top: clamp(12px, 2vw, 24px);
+  right: clamp(12px, 2vw, 24px);
+  width: clamp(200px, 18vw, 280px);
+  max-height: calc(100vh - 48px);
+  max-height: calc(100svh - 48px);
+  padding: clamp(14px, 2vw, 24px);
+}
+
+#leaderboard-panel h3 {
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+}
+
+#leaderboard {
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+}
+
+body::before,
+body::after {
+  width: clamp(180px, 35vw, 500px);
+  height: clamp(180px, 35vw, 500px);
+  pointer-events: none;
+}
+
+/* Reserve space for the desktop leaderboard */
+@media (min-width: 1201px) {
+  body {
+    padding-left: calc(clamp(200px, 18vw, 280px) + 48px);
+    padding-right: calc(clamp(200px, 18vw, 280px) + 48px);
+  }
+}
+
+@media (max-width: 1200px) {
+  body {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: clamp(16px, 3vw, 28px);
+    padding-top: clamp(16px, 3vw, 48px);
+  }
+
+  #Themebtn {
+    position: static;
+    align-self: flex-start;
+    order: 0;
+  }
+
+  .game-container {
+    order: 1;
+  }
+
+  #leaderboard-panel {
+    position: relative;
+    top: auto;
+    right: auto;
+    order: 2;
+    width: 100%;
+    max-width: 650px;
+    max-height: 40vh;
+    margin: 0;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 1201px) {
+  body {
+    align-items: flex-start;
+  }
 }
