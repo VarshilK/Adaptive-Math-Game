@@ -1,18 +1,21 @@
-Sprint 2 - Rohin Vaka
+# Sprint 2 — Rohin Vaka (Developer)
 
-Assigned Tasks
-- Continue working on the answer checker.
-- Work with Liming to connect the different parts of the game.
-- Help make sure the game works properly.
+## My work this sprint
+| Work | Estimate (min) | Actual (min) | +/- | Link |
+| --- | --- | --- | --- | --- |
+| Combined Jack's timer into Liming's game.js | Not tracked | Not tracked | - | [commit 90fb4c0](https://github.com/VarshilK/Adaptive-Math-Game/commit/90fb4c0) |
+| Docs: sprint files, architecture, test plan, code tour, reflection | Not tracked | Not tracked | - | [docs folder](https://github.com/VarshilK/Adaptive-Math-Game/tree/main/docs) |
 
-Work Completed
-During this sprint, I continued working on the project and helped with changes to the code. I also worked with my teammates to make sure the different parts of the game connected properly.
+I didn't make GitHub issues or PRs this sprint. Liming did most of the code reviews.
 
-Challenges
-One challenge was understanding how all the files worked together. Since different teammates were working on different parts, we had to make sure everything was connected correctly.
+## Sprint Review (code-related)
+- The challenge was that Jack and Liming each had their own game.js. Jack's had the timer and Liming's had the leaderboard and theme.
+- I put Jack's timer into Liming's game.js so both worked with index.html.
+- Backlog change: we should have used one shared file from the start so we didn't need to combine two versions.
 
-What I Learned
-I learned more about how different files and parts of JavaScript work together to create a functional game. I also learned that communication is important when working on a coding project with a team.
+## Sprint Retrospective (not code-related)
+- It was hard understanding how all the files worked together since everyone worked on different parts. Talking with my teammates helped.
+- Goal for next time: use GitHub issues and PRs so everyone can see who is doing what.
 
-Reflection
-Overall, Sprint 2 went more smoothly because I had a better understanding of the project than I did at the beginning. I enjoyed seeing how everyone's work came together into a finished game.
+## Estimation check
+- I didn't write estimates. Next time I will add an estimate and actual time to every task.
