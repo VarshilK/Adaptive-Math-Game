@@ -1,5 +1,7 @@
 # Test Plan
 
+Bella was in charge of testing. She tested the questions and answers in allquestions.js.
+
 We tested the game to see if it works. We made sure you can type your name, start, answer all 5 questions and get to the end screen.
 We checked if the right and wrong answers show up as green and red and if the level goes up and down. We also looked for repeated questions and checked that Play again works.
 We used the table below to go through each part of the game one by one.
