@@ -10,3 +10,8 @@ Our goal was to create the basic adaptive math game with questions, answer check
 I contributed to the initial game logic and worked with the team on the page layout and file connections.
 A challenge was coordinating separate question files and game logic so they worked together.
 Backlog change: we should have created issues for the main features and assigned them before implementation.
+
+
+Sprint Retrospective (not code-related)
+Assigning tasks helped divide the work, but the progress and contribution records were not organized enough on GitHub.
+Goal for next sprint: clarify the remaining work and keep the team's versions and responsibilities consistent.
