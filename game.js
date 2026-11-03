@@ -8,9 +8,9 @@ let answered = false;
 let Questionbook=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 let isLight = false;
 const leaderboard=[];
-let startTime = 0;
-let endTime = 0;
-let timerInterval = null;
+let startTime=0;
+let endTime=0;
+let timerInterval=null;
 
 function pickQuestion() {
     do {
@@ -21,13 +21,15 @@ function pickQuestion() {
 
 function startGame() {
     if(document.getElementById("playername").value.trim().length<=0)return;
+    function updateTimer(){
+        let timeUsed=Math.floor((Date.now()-startTime)/1000);
+        document.getElementById("timer").innerText=
+        "time:"+timeUsed+"seconds";
+    }
+    startTime=Date.now();
+    timerInterval=setInterval(updateTimer,1000);
     document.getElementById("start-page").hidden = true;
     document.getElementById("game-page").hidden = false;
-    clearInterval(timerInterval);
-    startTime = Date.now();
-    endTime = 0;
-    document.getElementById("timer").innerText = "Time: 0 seconds";
-    timerInterval = setInterval(updateTimer, 1000);
     pickQuestion();
     showQuestion();
 }
@@ -63,19 +65,18 @@ function showQuestion() {
 function showSummary() {
     document.getElementById("game-page").hidden = true;
     document.getElementById("summary-page").hidden = false;
-
-    const timeUsed = (endTime - startTime) / 1000;
-    const timeScore = 100 / (1 + timeUsed / 60);
-    const accuracyScore = (correctCount / 5) * 100;
-    const finalScore = 0.7 * accuracyScore + 0.3 * timeScore;
+    let timeUsed=(endTime-startTime)/1000;
+    let timeScore=100/(1+timeUsed/60);
+    let accuracyScore=(correctCount/5)*100;
+    let finalScore=0.7*accuracyScore+0.3*timeScore;
 
     document.getElementById("result").innerText =
         "Correct answers: " + correctCount + " / 5" +
-        "\nTime used: " + timeUsed.toFixed(1) + " seconds" +
-        "\nAccuracy Score: " + accuracyScore.toFixed(1) +
-        "\nTime Score: " + timeScore.toFixed(1) +
-        "\nFinal Score: " + finalScore.toFixed(1) +
-        "\nFinal level: " + skill_name[correctCount];
+        "\nTime used:"+timeUsed.toFixed(1)+"seconds"+
+        "\nAccuracy Score:"+accuracyScore.toFixed(1)+
+        "\nTime Score:"+timeScore.toFixed(1)+
+        "\nFinal Score:"+finalScore.toFixed(1)+
+        "\nFinal level:"+skill_name[Math.floor(finalScore/18)];
 
     updateLeaderboard(finalScore, timeUsed);
 }
@@ -92,9 +93,8 @@ function nextQuestion(){
     document.getElementById("nextque").hidden = true;
     clearColors();
     if (ql === 5) {
-        endTime = Date.now();
+        endTime=Date.now();
         clearInterval(timerInterval);
-        timerInterval = null;
         showSummary();
         return;
     }
@@ -108,10 +108,8 @@ function nextQuestion(){
 
 function restart(){
     clearInterval(timerInterval);
-    timerInterval = null;
-    startTime = 0;
-    endTime = 0;
-    document.getElementById("timer").innerText = "Time: 0 seconds";
+    timerInterval=null;
+    document.getElementById("timer").innerText="Time:0 seconds";
     document.getElementById("game-page").hidden = true;
     document.getElementById("summary-page").hidden = true;
     document.getElementById("start-page").hidden = false;
@@ -123,6 +121,8 @@ function restart(){
     Questionbook=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     document.getElementById("nextque").innerText = "Next Question";
     document.getElementById("playername").value = "";
+    startTime=0;
+    endTime=0;
 }
 
 function backchange(){
@@ -152,7 +152,7 @@ function updateLeaderboard(finalScore, timeUsed) {
                 time: timeUsed
             };
         leaderboard.push(currentPlayer);
-    } 
+    }
     else {
         if (finalScore > currentPlayer.score) {
             currentPlayer.score = finalScore;
@@ -177,12 +177,12 @@ function updateLeaderboard(finalScore, timeUsed) {
     }
     let ot = "";
     for (let i = 0; i < leaderboard.length; i++) {
-        ot += (i + 1) + ". " + leaderboard[i].name + ": " + leaderboard[i].score.toFixed(1) + " (" + leaderboard[i].correct + "/5, " + leaderboard[i].time.toFixed(1) + "s) " + skill_name[leaderboard[i].correct] + "\n";
+        ot += (i + 1) + ". " +
+            leaderboard[i].name + ": " +
+            leaderboard[i].score.toFixed(1) + " (" +
+            leaderboard[i].correct + "/5, " +
+            leaderboard[i].time.toFixed(1) + "s) " +
+            skill_name[Math.floor(leaderboard[i].score/18)] + "\n";
     }
     document.getElementById("leaderboard").innerText = ot;
-}
-
-function updateTimer() {
-    const timeUsed = Math.floor((Date.now() - startTime) / 1000);
-    document.getElementById("timer").innerText = "Time: " + timeUsed + " seconds";
 }
