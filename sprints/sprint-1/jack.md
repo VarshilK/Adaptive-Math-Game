@@ -15,3 +15,5 @@ The team needed clear communication between the person writing the questions and
 Goal for next sprint: agree on how new features will connect to the shared game code.
 Estimation check
 No task estimates or actual times are recorded here. Next time I would record the time spent on question writing and coding separately.
+jack.md
+2 KB
