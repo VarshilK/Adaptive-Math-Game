@@ -1,4 +1,4 @@
-# Sprint 2 — Rohin Vaka (Developer)
+# Sprint 2 — Varshil Kaipu (Team Lead)
 
 ## My work this sprint
 | Work | Estimate (min) | Actual (min) | +/- | Link |
