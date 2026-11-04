@@ -1,4 +1,4 @@
-Sprint 1 - Varshil Kaipu
+Sprint 1 - Varshil Kaipu (Team lead)
 
 | Work | Estimate (min) | Actual (min) | +/- | Link |
 | --- | --- | --- | --- | --- |
